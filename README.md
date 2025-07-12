@@ -125,7 +125,8 @@ sudo ./lsws.sh --hostname example.com --only-ssl
 - **aarch64/arm64** (ARM 64-bit)
 
 ### Requirements
-- **RAM**: 2GB minimum (required for CentOS 9+ with PHP)
+- **Virtual Machine or metal server** LiteSpeed Enterprise **doesn't work** in containers!
+- **RAM**: 512M Minimum without PHP 
 - **Root access** required
 - **Internet connection** for downloads and SSL validation
 
