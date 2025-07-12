@@ -209,6 +209,16 @@ sudo /usr/local/lsws/bin/lswsctrl restart
 - Auto-renewal configured with cron jobs
 - Certificates stored in `/etc/letsencrypt/live/[domain]/`
 
+### LiteSpeed-Specific SSL Considerations
+
+**Important**: LiteSpeed requires a proper restart after SSL certificate renewal to pick up new certificates. The script automatically configures this.
+
+**Automatic Renewal Commands**:
+```bash
+# The script sets up this cron job for proper LiteSpeed restart
+0 */12 * * * root certbot -q renew --pre-hook "systemctl stop lsws; /usr/local/lsws/bin/lswsctrl stop" --post-hook "/usr/local/lsws/bin/lswsctrl start; systemctl start lsws"
+```
+
 ### Manual Certificate Operations
 ```bash
 # Force renewal with LiteSpeed restart
@@ -216,6 +226,17 @@ sudo certbot renew --force-renewal --pre-hook "systemctl stop lsws; /usr/local/l
 
 # Using script for renewal (recommended)
 sudo ./lsws.sh --hostname yourdomain.com --only-ssl
+```
+
+### Wildcard SSL Certificates
+
+For wildcard certificates (`*.domain.com`), you need DNS validation instead of HTTP validation:
+
+**Requirements**:
+- DNS provider with API support (Cloudflare, DigitalOcean, GoDaddy, Hetzner, etc.)
+- Certbot DNS plugin for your provider
+- API credentials from your DNS provider
+
 ```
 
 ## Uninstallation
