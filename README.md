@@ -9,7 +9,7 @@ This script was created because the standard `lsws1click.sh` from LiteSpeed Tech
 ### Basic Setup (5 minutes)
 ```bash
 # Download the script
-wget https://raw.githubusercontent.com/your-repo/lsws-installer/main/lsws.sh
+wget https://raw.githubusercontent.com/vadimbk/litespeed-installer/main/lsws.sh
 chmod +x lsws.sh
 
 # Install with SSL certificate for your domain
@@ -249,7 +249,7 @@ sudo ./lsws.sh --uninstall --quiet
 
 ## Contributing
 
-- **Bug reports & feature requests**: Please open an issue in the [GitHub Issues](https://github.com/your-repo/lsws-installer/issues) section
+- **Bug reports & feature requests**: Please open an issue in the [GitHub Issues](https://github.com/vadimbk/litespeed-installer/issues) section
 - **Pull requests**: Create a feature branch and submit a pull request
 - **Testing**: Test on clean OS installations before submitting changes
 
